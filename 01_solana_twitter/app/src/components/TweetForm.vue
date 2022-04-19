@@ -77,7 +77,7 @@ const send = async () => {
 
                 <!-- Character limit. -->
                 <div :class="characterLimitColour">
-                    {{ characterLimit }} left
+                    {{ characterLimit }} left!
                 </div>
 
                 <!-- Tweet button. -->

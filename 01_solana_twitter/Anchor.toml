@@ -1,15 +1,20 @@
 [features]
 seeds = false
 [programs.localnet]
-solana_twitter = "FT1tUCwE18boUgi8pdbriSsnTUXEjLJcpbsEhUn575cQ"
+solana_twitter = "8nvyv1H8ArC62agd9xQeQbWuNaErUmiUUz9C26ydwzRH"
+
 [programs.devnet]
-solana_twitter = "FT1tUCwE18boUgi8pdbriSsnTUXEjLJcpbsEhUn575cQ"
+solana_twitter = "8nvyv1H8ArC62agd9xQeQbWuNaErUmiUUz9C26ydwzRH"
+
+[programs.testnet]
+solana_twitter = "8nvyv1H8ArC62agd9xQeQbWuNaErUmiUUz9C26ydwzRH"
+
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "devnet"
+cluster = "testnet"
 wallet = "/home/jaylee/.config/solana/id.json"
 
 [scripts]
