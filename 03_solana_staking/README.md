@@ -1,14 +1,31 @@
+# Staking Tokan
+## Requirement
+```
+
+```
+
+## Project Install
+```
+$ git clone 
+$ yarn install
+$ anchor build
+$ anchor keys list
+Program ID: xxx
+Note: Copy Program ID, Past to lib.rs and Anchor.toml
+```
 
 ## Check wallet
 - Edit Anchor.toml
 ```
 [provider]
 cluster = "localnet"
-wallet = "/home/bmstart/work/solana/keys/alice.json"
+wallet = "~/.config/solana/id.json"
 ```
 
-## Test
+## Run Test Command
 ```
 anchor test -- --features local-testing,test-id
 ```
 
+## Run Test Result
+![](http://github.com/)
