@@ -3,10 +3,10 @@ use anchor_spl::token::{self, Mint, Token, TokenAccount};
 use std::convert::TryInto;
 
 #[cfg(not(feature = "local-testing"))]
-declare_id!("2ya6xoJKy12GodccqCVJMLM71pWwqbjYovPHEgQVVLjX");
+declare_id!("DVmQmFfj8aD2KgJpkTt8q9cPB4ESYo8Qf8fJqHMUt7yr");
 
 #[cfg(feature = "local-testing")]
-declare_id!("2ya6xoJKy12GodccqCVJMLM71pWwqbjYovPHEgQVVLjX");
+declare_id!("DVmQmFfj8aD2KgJpkTt8q9cPB4ESYo8Qf8fJqHMUt7yr");
 
 #[cfg(not(feature = "local-testing"))]
 pub mod constants {

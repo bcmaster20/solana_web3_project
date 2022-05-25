@@ -1,12 +1,10 @@
 
-# Staking 
-
 ## Check wallet
 - Edit Anchor.toml
 ```
 [provider]
 cluster = "localnet"
-wallet = "~/.config/solana/id.json"
+wallet = "/home/bmstart/work/solana/keys/alice.json"
 ```
 
 ## Test

@@ -29,12 +29,12 @@ const STAKING_PDA_SEED = "staking";
 const sleep = (ms) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
-anchor.setProvider(anchor.Provider.env());
-let provider = anchor.Provider.env();
+anchor.setProvider(anchor.AnchorProvider.env());
+let provider = anchor.AnchorProvider.env();
 const program = anchor.workspace.CustomStaking as Program<CustomStaking>;
 
-
-describe("custom-staking", () => {
+let TestCase = 0;
+describe("Custom-Staking Test Logic 11 Case", () => {
   let mintKey;
   let mintObject;
   let mintPubkey;
@@ -50,7 +50,7 @@ describe("custom-staking", () => {
   let userStakingPubkey2;
   let userStakingBump2;
 
-  it('Is initialized!', async () => {
+  it('1. Accounts Initialized!!!', async () => {
     //setup logging event listeners
 
     //this already exists in ecosystem
@@ -91,11 +91,12 @@ describe("custom-staking", () => {
         tokenProgram: TOKEN_PROGRAM_ID,
         rent: anchor.web3.SYSVAR_RENT_PUBKEY,
       }).rpc();
+
   });
 
   let walletTokenAccount;
 
-  it('Mint test tokens', async () => {
+  it('2. Mint Test xTokens(100)', async () => {
     walletTokenAccount = await mintObject.createAssociatedTokenAccount(provider.wallet.publicKey);
     await utils.mintToAccount(provider, mintPubkey, walletTokenAccount, 100_000_000_000);
   });
@@ -164,14 +165,14 @@ describe("custom-staking", () => {
       .rpc();
   }
 
-  it('Swap token for xToken', async () => {
+  it('3. Staking: Swap 5 Token, Token: 5 xToken: 95', async () => {
     await stake(5_000_000_000);
 
     assert.strictEqual(await getTokenBalance(walletTokenAccount), 95_000_000_000);
     assert.strictEqual(await getTokenBalance(vaultPubkey), 5_000_000_000);
   });
 
-  it('Withdraw - reject', async () => {
+  it('4. Withdraw - Reject,  Result: Fail', async () => {
     await assert.rejects(
       async () => {
         await withdraw();
@@ -179,37 +180,37 @@ describe("custom-staking", () => {
     );
   });
 
-  it('Airdrop', async() => {
+  it('5. Airdrop 1 Token, Token: 6', async() => {
     const vaultAmount = await getTokenBalance(vaultPubkey);
     await airdrop(1);
     assert.strictEqual(await getTokenBalance(vaultPubkey), vaultAmount + 1_000_000_000);
   });
 
-  it('Unstake', async () => {
+  it('6. Unstake', async () => {
     await unstake();
   });
 
-  it('Restake', async () => {
+  it('7. Restake', async () => {
     await restake();
   });
 
-  it('Airdrop', async() => {
+  it('8. Airdrop 2 Token, Token: 8', async() => {
     const vaultAmount = await getTokenBalance(vaultPubkey);
     await airdrop(2);
     assert.strictEqual(await getTokenBalance(vaultPubkey), vaultAmount + 2_000_000_000);
   });
 
-  it('Unstake - again', async () => {
+  it('9. Unstake - Again', async () => {
     await unstake();
   });
 
-  it('Airdrop - not reward', async() => {
+  it('10. Airdrop 4 Token- Not Reward, Token: 12 xToken: 95', async() => {
     const vaultAmount = await getTokenBalance(vaultPubkey);
     await airdrop(4);
     assert.strictEqual(await getTokenBalance(vaultPubkey), vaultAmount + 4_000_000_000);
   });
 
-  it('Withdraw', async () => {
+  it('11. Withdraw Sleep LockTime+1(4) Token (4) xToken (103), ', async () => {
     await sleep(4000);
     await withdraw();
     assert.strictEqual(await getTokenBalance(walletTokenAccount), 103_000_000_000);
@@ -223,52 +224,52 @@ async function getTokenBalance(pubkey) {
   );
 }
 
-function createAssociatedTokenAccountInstruction(
-  associatedTokenAddress: PublicKey,
-  payer: PublicKey,
-  walletAddress: PublicKey,
-  splTokenMintAddress: PublicKey,
-) {
-  const keys = [
-    {
-      pubkey: payer,
-      isSigner: true,
-      isWritable: true,
-    },
-    {
-      pubkey: associatedTokenAddress,
-      isSigner: false,
-      isWritable: true,
-    },
-    {
-      pubkey: walletAddress,
-      isSigner: false,
-      isWritable: false,
-    },
-    {
-      pubkey: splTokenMintAddress,
-      isSigner: false,
-      isWritable: false,
-    },
-    {
-      pubkey: SystemProgram.programId,
-      isSigner: false,
-      isWritable: false,
-    },
-    {
-      pubkey: TOKEN_PROGRAM_ID,
-      isSigner: false,
-      isWritable: false,
-    },
-    {
-      pubkey: SYSVAR_RENT_PUBKEY,
-      isSigner: false,
-      isWritable: false,
-    },
-  ];
-  return new TransactionInstruction({
-    keys,
-    programId: ASSOCIATED_TOKEN_PROGRAM_ID,
-    data: Buffer.from([]),
-  });
-}
+// function createAssociatedTokenAccountInstruction(
+//   associatedTokenAddress: PublicKey,
+//   payer: PublicKey,
+//   walletAddress: PublicKey,
+//   splTokenMintAddress: PublicKey,
+// ) {
+//   const keys = [
+//     {
+//       pubkey: payer,
+//       isSigner: true,
+//       isWritable: true,
+//     },
+//     {
+//       pubkey: associatedTokenAddress,
+//       isSigner: false,
+//       isWritable: true,
+//     },
+//     {
+//       pubkey: walletAddress,
+//       isSigner: false,
+//       isWritable: false,
+//     },
+//     {
+//       pubkey: splTokenMintAddress,
+//       isSigner: false,
+//       isWritable: false,
+//     },
+//     {
+//       pubkey: SystemProgram.programId,
+//       isSigner: false,
+//       isWritable: false,
+//     },
+//     {
+//       pubkey: TOKEN_PROGRAM_ID,
+//       isSigner: false,
+//       isWritable: false,
+//     },
+//     {
+//       pubkey: SYSVAR_RENT_PUBKEY,
+//       isSigner: false,
+//       isWritable: false,
+//     },
+//   ];
+//   return new TransactionInstruction({
+//     keys,
+//     programId: ASSOCIATED_TOKEN_PROGRAM_ID,
+//     data: Buffer.from([]),
+//   });
+// }

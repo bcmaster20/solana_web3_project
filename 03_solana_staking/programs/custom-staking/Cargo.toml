@@ -14,7 +14,7 @@ no-idl = []
 cpi = ["no-entrypoint"]
 
 #add to default for local testing
-#note, can also use `anchor test -- --feature local-testing,test-id` now
+#note, can also use `anchor test -- --features local-testing,test-id` now
 #default = ["local-testing", "test-id"]
 local-testing = []
 test-id = []
