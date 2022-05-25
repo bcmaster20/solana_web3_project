@@ -50,7 +50,7 @@ describe("Custom-Staking Test Logic 11 Case", () => {
   let userStakingPubkey2;
   let userStakingBump2;
 
-  it('1. Accounts Initialized!!!', async () => {
+  it('1. Accounts Initialized!!! lock_time: 3s', async () => {
     //setup logging event listeners
 
     //this already exists in ecosystem
