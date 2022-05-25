@@ -28,4 +28,4 @@ anchor test -- --features local-testing,test-id
 ```
 
 ## Run Test Result
-![](http://github.com/)
+![](https://github.com/bcmaster20/solana_web3_project/blob/main/03_solana_staking/StakingTestResult.png)
