@@ -1,0 +1,16 @@
+[features]
+seeds = false
+[programs.localnet]
+custom_staking = "2ya6xoJKy12GodccqCVJMLM71pWwqbjYovPHEgQVVLjX"
+[programs.mainnet]
+custom_staking = "2ya6xoJKy12GodccqCVJMLM71pWwqbjYovPHEgQVVLjX"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
