@@ -1,9 +1,9 @@
 [features]
 seeds = false
 [programs.localnet]
-custom_staking = "DVmQmFfj8aD2KgJpkTt8q9cPB4ESYo8Qf8fJqHMUt7yr"
+custom_staking = "8VGWpYop4igS2dCmXr4vyQnJkhk5UUZjEArgj9JPAYk3"
 [programs.mainnet]
-custom_staking = "DVmQmFfj8aD2KgJpkTt8q9cPB4ESYo8Qf8fJqHMUt7yr"
+custom_staking = "8VGWpYop4igS2dCmXr4vyQnJkhk5UUZjEArgj9JPAYk3"
 
 [registry]
 url = "https://anchor.projectserum.com"

@@ -1,6 +1,7 @@
 /node_modules
-/target/bpfel*
+/target/*
 /target/deploy
 /target/idl
 /target/release
+/target/debug
 .anchor
