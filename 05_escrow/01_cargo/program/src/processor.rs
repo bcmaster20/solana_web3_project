@@ -45,7 +45,7 @@ impl Processor {
         if !initializer.is_signer {
             return Err(ProgramError::MissingRequiredSignature);
         }
-
+        
         let temp_token_account = next_account_info(account_info_iter)?;
 
         let token_to_receive_account = next_account_info(account_info_iter)?;
@@ -103,6 +103,15 @@ impl Processor {
         program_id: &Pubkey,
     ) -> ProgramResult {
         let account_info_iter = &mut accounts.iter();
+        // taker: bobKeypair
+        // takers_sending_token_account: bobYTokenAccountPubkey
+        // takers_token_to_receive_account: bobXTokenAccountPubkey
+        // pdas_temp_token_account: escrowState.XTokenTempAccountPubkey
+        // initializers_main_account : escrowState.initializerAccountPubkey : alicePubKey
+        // initializers_token_to_receive_account : escrowState.initializerYTokenAccount : aliceRecvYTokenPubKey
+        // escrow_account
+        // token_program
+        // pda_account : PDA of EscrowProgramId
         let taker = next_account_info(account_info_iter)?;
 
         if !taker.is_signer {
@@ -143,7 +152,16 @@ impl Processor {
         }
 
         let token_program = next_account_info(account_info_iter)?;
-
+        // taker: bobKeypair
+        // takers_sending_token_account: bobYTokenAccountPubkey
+        // takers_token_to_receive_account: bobXTokenAccountPubkey
+        // pdas_temp_token_account: escrowState.XTokenTempAccountPubkey
+        // initializers_main_account : escrowState.initializerAccountPubkey : alicePubKey
+        // initializers_token_to_receive_account : escrowState.initializerYTokenAccount : aliceRecvYTokenPubKey
+        // escrow_account
+        // token_program
+        // pda_account : PDA of EscrowProgramId
+        
         let transfer_to_initializer_ix = spl_token::instruction::transfer(
             token_program.key,
             takers_sending_token_account.key,
