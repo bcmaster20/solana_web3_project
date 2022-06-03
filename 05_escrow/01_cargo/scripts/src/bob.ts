@@ -52,7 +52,7 @@ const bob = async () => {
     ),
     expectedAmount: new BN(decodedEscrowLayout.expectedAmount, 10, "le"),
   };
-
+  console.log(escrowState);
   const PDA = await PublicKey.findProgramAddress(
     [Buffer.from("escrow")],
     escrowProgramId

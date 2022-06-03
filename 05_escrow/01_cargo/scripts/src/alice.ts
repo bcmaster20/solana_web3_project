@@ -32,6 +32,7 @@ const alice = async () => {
 
   const tempXTokenAccountKeypair = new Keypair();
   const connection = new Connection("http://localhost:8899", "confirmed");
+  console.log(TOKEN_PROGRAM_ID.toBase58());
   const createTempTokenAccountIx = SystemProgram.createAccount({
     programId: TOKEN_PROGRAM_ID,
     space: AccountLayout.span,
