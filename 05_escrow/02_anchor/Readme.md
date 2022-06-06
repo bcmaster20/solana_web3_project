@@ -7,14 +7,14 @@ $ anchor init anchor-escrow
 
 ### Programs/anchor-escrow/Cargo.toml
 ```
-anchor-lang = "0.20.1"
-anchor-spl = {version = "0.20.1"}
+anchor-spl = {version = "0.24.2"}
 spl-token = {version = "3.3.0", features = ["no-entrypoint"]
 ```
 
 ### Test
 ```
-npm install --save @solana/spl-token
+yarn add @solana/spl-token
+yarn add @solana/web3.js
 ```
 ### Test Fixed.
 Add below part in package.json
