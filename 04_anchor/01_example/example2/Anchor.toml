@@ -1,12 +1,12 @@
 [programs.localnet]
-example2 = "9V3jFkqCwyKGN8bhY8mFGdYRwtq6zgCJXnL63J3dBhKt"
+example2 = "76hGMmKBiQE71hy8Th7SxRZfg5fgdSwcqukki1zXD7JC"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
 cluster = "localnet"
-wallet = "/Users/naderdabit/.config/solana/id.json"
+wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "mocha -t 1000000 tests/"

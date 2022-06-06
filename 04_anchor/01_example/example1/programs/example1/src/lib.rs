@@ -1,18 +1,18 @@
 use anchor_lang::prelude::*;
 
-declare_id!("7CiTJHXzv7SdK1bf14nmCnPg9c8HRs3H9DdfEJMoay5K");
+declare_id!("5QTZWcGQLihjvwzK39924RYyUE11gehREFb6ZLsT9PE6");
 
 #[program]
 mod example1 {
     use super::*;
 
-    pub fn create(ctx: Context<Create>) -> ProgramResult {
+    pub fn create(ctx: Context<Create>) -> Result<()> {
         let base_account = &mut ctx.accounts.base_account;
         base_account.count = 0;
         Ok(())
     }
 
-    pub fn increment(ctx: Context<Increment>) -> ProgramResult {
+    pub fn increment(ctx: Context<Increment>) -> Result<()> {
         let base_account = &mut ctx.accounts.base_account;
         base_account.count += 1;
         Ok(())
