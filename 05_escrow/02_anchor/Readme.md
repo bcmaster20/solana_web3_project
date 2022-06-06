@@ -12,8 +12,17 @@ anchor-spl = {version = "0.20.1"}
 spl-token = {version = "3.3.0", features = ["no-entrypoint"]
 ```
 
-## Reference
-- [Anchor Escrow](https://book.solmeet.dev/notes/intro-to-anchor)
+### Test
+```
+npm install --save @solana/spl-token
+```
+### Test Fixed.
+Add below part in package.json
+```
+"resolutions": {
+  "@solana/web3.js": "1.36.0"
+}  
 ```
 
-```
+## Reference
+- [Anchor Escrow](https://book.solmeet.dev/notes/intro-to-anchor)
