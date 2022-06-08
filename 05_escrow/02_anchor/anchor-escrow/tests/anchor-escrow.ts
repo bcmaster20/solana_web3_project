@@ -1,9 +1,18 @@
 import * as anchor from '@project-serum/anchor';
 import { Program } from '@project-serum/anchor';
 import { AnchorEscrow } from '../target/types/anchor_escrow';
-import { PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
+import { Connection, PublicKey, SystemProgram, Transaction } from '@solana/web3.js';
 import { TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { assert } from "chai";
+
+export const getTokenBalance = async (
+  pubkey: PublicKey,
+  connection: Connection
+) => {
+  return parseInt(
+    (await connection.getTokenAccountBalance(pubkey)).value.amount
+  );
+};
 
 describe('anchor-escrow', () => {
 
@@ -12,7 +21,7 @@ describe('anchor-escrow', () => {
   anchor.setProvider(provider);
 
   const program = anchor.workspace.AnchorEscrow as Program<AnchorEscrow>;
-
+  console.log(program.programId.toBase58());
   let mintA = null;
   let mintB = null;
   let initializerTokenAccountA = null;
@@ -112,12 +121,15 @@ describe('anchor-escrow', () => {
     );
     vault_account_pda = _vault_account_pda;
     vault_account_bump = _vault_account_bump;
-
+    console.log(vault_account_pda.toBase58());
+    console.log(vault_account_bump);
     const [_vault_authority_pda, _vault_authority_bump] = await PublicKey.findProgramAddress(
       [Buffer.from(anchor.utils.bytes.utf8.encode("escrow"))],
       program.programId
     );
     vault_authority_pda = _vault_authority_pda;
+    console.log(_vault_authority_pda.toBase58());
+    console.log(_vault_authority_bump);
 
     await program.rpc.initialize(
       vault_account_bump,
@@ -143,12 +155,15 @@ describe('anchor-escrow', () => {
     );
 
     let _vault = await mintA.getAccountInfo(vault_account_pda);
+    
 
     let _escrowAccount = await program.account.escrowAccount.fetch(
       escrowAccount.publicKey
     );
 
     // Check that the new owner is the PDA.
+    console.log("PDA Token Account=", await getTokenBalance(vault_account_pda, provider.connection));
+    // console.log(_vault);
     assert.ok(_vault.owner.equals(vault_authority_pda));
 
     // Check that the values in the escrow account match what we expect.
