@@ -1,0 +1,19 @@
+{
+  "name": "BMaster",
+  "symbol": "BM_NFT",
+  "image": "0.png",
+  "properties": {
+    "files": [
+      {
+        "uri": "0.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "uPMCGZB4NTtQAQ6eLPUhLtRtJTHyF8jZfb8Nma4q6UJ",
+        "share": 100
+      }
+    ]
+  }
+}
