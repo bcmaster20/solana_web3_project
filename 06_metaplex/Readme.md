@@ -210,7 +210,7 @@ npx ts-node js/packages/cli/src/candy-machine-v2-cli.ts verify_upload -e devnet 
 ```
 ### 2-2 Candimachine Mint Web Site
 ```
-cd candy-machine-mint-main
+cd metaplex-master/
 
 ```
 
