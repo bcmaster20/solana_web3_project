@@ -34,7 +34,7 @@ REACT_APP_STORE_OWNER_ADDRESS_ADDRESS=uPMCGZB4NTtQAQ6eLPUhLtRtJTHyF8jZfb8Nma4q6U
 $ cd ~/metaplex/js/
 $ ts-node ~/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts verify_assets ./s_assets
 
-ts-node /home/jaylee/01_project/solana_web3_project/06_metaplex/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts upload -e devnet -k ~/.config/solana/id.json -cp CandyV2-Config.json ./s_assets
+ts-node ~/metaplex/js/packages/cli/src/candy-machine-v2-cli.ts upload -e devnet -k ~/.config/solana/id.json -cp CandyV2-Config.json ./s_assets
 ```
 
 # 22/07/10 Metaplex
@@ -144,16 +144,16 @@ cd metaplex-master
 npx ts-node js/packages/cli/src/candy-machine-v2-cli.ts verify_assets ./assets
   started at: 1657447479111
   Verifying token metadata for 10 (img+json) pairs
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/0.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/1.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/2.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/3.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/4.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/5.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/6.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/7.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/8.json
-  Checking manifest file: /home/jaylee/01_project/solana_web3_project/08_metaplex_mint/metaplex-master/assets/9.json
+  Checking manifest file: metaplex-master/assets/0.json
+  Checking manifest file: metaplex-master/assets/1.json
+  Checking manifest file: metaplex-master/assets/2.json
+  Checking manifest file: metaplex-master/assets/3.json
+  Checking manifest file: metaplex-master/assets/4.json
+  Checking manifest file: metaplex-master/assets/5.json
+  Checking manifest file: metaplex-master/assets/6.json
+  Checking manifest file: metaplex-master/assets/7.json
+  Checking manifest file: metaplex-master/assets/8.json
+  Checking manifest file: metaplex-master/assets/9.json
   ended at: Sun Jul 10 2022 19:04:39 GMT+0900 (Japan Standard Time). time taken: 00:00:00
 ```
 - cany-machine asset upload
